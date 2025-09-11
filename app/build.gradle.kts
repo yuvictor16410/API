@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.apidemo"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.apidemo"
@@ -41,6 +41,8 @@ android {
 
 dependencies {
 
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
