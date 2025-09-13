@@ -24,13 +24,18 @@ interface ApiService {
     // define the specific api based on the api design
     // request, response
     @GET("typicode/demo/profile")
-    suspend fun getProfile():Response
+    suspend fun getPost1():PostDetail1
+
 }
 
-data class Response(
-    @SerializedName("name") // sets the api name
-    val name: String,
+data class PostDetail1(
+    @SerializedName("name")
+    val id: Int,
+    val title: String
 )
+
+
+
 
 class MainActivity : ComponentActivity() {
 
@@ -45,8 +50,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         var data = ""
+
         lifecycleScope.launch{
-            data = api.getProfile().name
+
+            data class Post1Data(
+                var data1: Int,
+                var data2: String
+            )
+
+            data = api.getPost1().id.toString()
             setContent {
                 Screen(data)
             }
